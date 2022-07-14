@@ -21,10 +21,13 @@ function drawGrid(rows, columns){
         for (let j = 0; j < rows; ++j) {
             const div = document.createElement('div');
             div.addEventListener('mouseover', () => {
+                // Code for changing cell that is being hovered over to a random color
                 const red = Math.floor(Math.random() * 256);
                 const green = Math.floor(Math.random() * 256);
                 const blue = Math.floor(Math.random() * 256);
                 div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                
+                // Code for setting the cell that is being hovered over to black, classic style
                 // div.style.backgroundColor = 'black';
             });
             div.classList.add('cell');
