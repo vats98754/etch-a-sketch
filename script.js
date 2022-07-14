@@ -1,12 +1,12 @@
 const customBtn = document.querySelector('#btn-grid-size');
 // Draws new custom grid when button is clicked
 customBtn.addEventListener('click', function() {
-    const row = prompt('Enter number of rows', '1');
-    const column = prompt('Enter number of columns', '1');
-    let rowNum = parseInt(row);
-    let colNum = parseInt(column);
-    rowNum = Math.ceil(1, Math.floor(200, rowNum));
-    colNum = Math.ceil(1, Math.floor(200, colNum));
+    let row = prompt('Enter number of rows', '1');
+    let column = prompt('Enter number of columns', '1');
+    if (row < 1) row = 1;
+    else if (row > 150) row = 150;
+    if (column < 1) column = 1;
+    else if (column > 150) column = 150;
     drawGrid(row, column);
 });
 
@@ -21,7 +21,11 @@ function drawGrid(rows, columns){
         for (let j = 0; j < rows; ++j) {
             const div = document.createElement('div');
             div.addEventListener('mouseover', () => {
-                div.style.backgroundColor = 'black';
+                const red = Math.floor(Math.random() * 256);
+                const green = Math.floor(Math.random() * 256);
+                const blue = Math.floor(Math.random() * 256);
+                div.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+                // div.style.backgroundColor = 'black';
             });
             div.classList.add('cell');
             divParent.appendChild(div);
