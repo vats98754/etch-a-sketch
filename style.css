@@ -9,6 +9,11 @@ body {
     background-color: #BB86FC;
 }
 
+.buttons {
+    display: flex;
+    gap: 30px;
+}
+
 button {
     height: 30px;
     background-color: #03DAC6;
